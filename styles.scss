@@ -1,0 +1,195 @@
+// Variables
+$primary-color: #000408;
+$secondary-color: #01c4f4;
+$text-color: #000000;
+$font-family: 'Arial', sans-serif;
+$breakpoint-mobile: 768px; // Para dispositivos móviles y tabletas
+
+// Reset básico
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-color;
+  background-color: $secondary-color;
+}
+
+// Estilo de Header
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;  // Hacer que el contenido se ajuste en pantallas más pequeñas
+
+  .logo h1 {
+    font-size: 2rem;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; // Aseguramos que los enlaces se ajusten en pantallas pequeñas
+    justify-content: center;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+// Estilo de las secciones principales
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.bienvenida {
+  text-align: center;
+  h2 {
+    font-size: 2.5rem;
+    color: $primary-color;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.portada img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+// Estilos de los Modelos, Servicios y Galería
+.modelos, .servicios, .galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // Diseño de dos columnas
+  gap: 20px;
+
+  .modelo, .servicio, .foto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .modelo img, .foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+// Estilos de los formularios de contacto
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 1rem;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Estilo del Footer
+footer {
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+// Media Queries para pantallas pequeñas (móviles y tabletas)
+
+@media (max-width: $breakpoint-mobile) {
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  nav ul li {
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .bienvenida h2 {
+    font-size: 2rem;
+  }
+
+  .bienvenida p {
+    font-size: 1rem;
+  }
+
+  .modelos, .servicios, .galeria {
+    grid-template-columns: 1fr; // Diseño de una columna
+  }
+
+  .foto img, .modelo img {
+    width: 100%;
+    height: auto;
+  }
+
+  form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+  }
+}
+
